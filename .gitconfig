@@ -3,7 +3,7 @@
   email = inmatarian@gmail.com
 [alias]
   ci = commit
-  lg = log --graph --pretty=format:'%Cred%h%Creset %s %Cred%d%Creset %cN %Cgreen%cr%Creset'
+  lg = log --graph --pretty=format:'%Cred%h%Creset %s%Cred%d%Creset %Cgreen%cr%Creset %cN'
   branches = branch -a -v -v
   changes = status --short
 [color]

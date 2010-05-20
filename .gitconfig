@@ -1,0 +1,15 @@
+[user]
+  name = Inny
+  email = inmatarian@gmail.com
+[alias]
+  ci = commit
+  lg = log --graph --pretty=format:'%Cred%h%Creset %s %Cred%d%Creset %cN %Cgreen%cr%Creset'
+[color]
+  branch = auto
+  diff = auto
+  grep = auto
+  interactive = auto
+  page = auto
+  status = auto
+  ui = auto
+

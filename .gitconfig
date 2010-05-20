@@ -4,6 +4,8 @@
 [alias]
   ci = commit
   lg = log --graph --pretty=format:'%Cred%h%Creset %s %Cred%d%Creset %cN %Cgreen%cr%Creset'
+  branches = branch -a -v -v
+  changes = status --short
 [color]
   branch = auto
   diff = auto

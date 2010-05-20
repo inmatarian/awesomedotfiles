@@ -1,0 +1,108 @@
+
+# UBUNTU-CONKY
+# A comprehensive conky script, configured for use on
+# Ubuntu / Debian Gnome, without the need for any external scripts.
+#
+# Based on conky-jc and the default .conkyrc.
+# INCLUDES:
+# - tail of /var/log/messages
+# - netstat shows number of connections from your computer and application/PID making it. Kill spyware!
+#
+# -- Pengo
+# 
+ 
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+# own_window_type override
+# own_window_transparent yes
+own_window_title trans777
+# own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+ 
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+ 
+# fiddle with window
+use_spacer right
+
+# Use Xft?
+use_xft yes
+xftfont DejaVu Sans Mono:size=8
+xftalpha 0.8
+text_buffer_size 2048
+ 
+# Update interval in seconds
+update_interval 5.0
+ 
+# Minimum size of text area
+# minimum_size 250 5
+minimum_width 300
+maximum_width 300
+ 
+# Draw shades?
+draw_shades no
+ 
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+uppercase no # set to yes if you want all text to be in uppercase
+ 
+# Stippled borders?
+stippled_borders 3
+ 
+# border margins
+border_margin 9
+ 
+# border width
+border_width 10
+ 
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color grey90
+ 
+own_window_colour brown
+own_window_transparent yes
+ 
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+ 
+# Gap between borders of screen and text
+gap_x 10
+gap_y 10
+ 
+# stuff after 'TEXT' will be formatted on screen
+ 
+TEXT
+$color
+${color orange}${font DejaVu Sans Mono:bold:size=8}SYSTEM ($nodename) ${hr 2}$font$color
+Uptime: ${uptime} ${alignr} Load: ${loadavg}
+$cpubar
+${cpugraph 000000 ffffff}
+${font DejaVu Sans Mono:bold:size=8}NAME${alignr}CPU%   MEM%$font
+${top name 1} ${alignr} ${top cpu 1} ${top mem 1}
+${top name 2} ${alignr} ${top cpu 2} ${top mem 2}
+${top name 3} ${alignr} ${top cpu 3} ${top mem 3}
+
+${color orange}${font DejaVu Sans Mono:bold:size=8}MEMORY / DISK ${hr 2}$font$color
+RAM:  ${alignr} $memperc% ${membar 6,230}
+Swap: ${alignr} $swapperc% ${swapbar 6,230}
+Root: ${alignr} ${fs_used_perc /}% ${fs_bar 6,230 /}
+
+${color orange}${font DejaVu Sans Mono:bold:size=8}NETWORK (${addr eth0}) ${hr 2}$font$color
+Down: ${downspeed eth0}${alignr}Up: ${upspeed eth0}
+${downspeedgraph eth0 24,130 000000 ff0000}${alignr}${upspeedgraph eth0 24,130 000000 00ff00}$color
+Total: ${totaldown eth0}${alignr}Total: ${totalup eth0}
+
+${color orange}${font DejaVu Sans Mono:bold:size=8}MUSIC (${mpd_status}) ${hr 2}$font$color
+${mpd_smart}
+${mpd_elapsed} / ${mpd_length}  ${mpd_bar 6}
+
+${color orange}${font DejaVu Sans Mono:bold:size=8}WEATHER ${hr 2}$font$color
+${execpi 300 weather JFK --quiet -f --headers=temperature,sky_conditions | head -n 5}
+
+# ${color orange}${font DejaVu Sans Mono:bold:size=8}CALENDAR ${hr 2}$font$color
+# ${execpi 300 cal | sed -e "s/`date "+%e"`/'${color orange}'`date "+%e"`'$color'/"}
+# ${execpi 360 cal | perl -pe ’s/^/ /;s/$/ /;s/ ‘”$(date “+%e”)”‘ /\['"$(date "+%e")"']/’}
+# ${execpi 60 cal | cut -c23-44 --complement} # sed s/^/${alignr}/}
+# ${execpi 60 DJS=`date +%_d`; cal | sed s/”$DJS”‘\b’/'${color orange}’”$DJS”‘$color’/ | sed s/^/’${alignc}’/}

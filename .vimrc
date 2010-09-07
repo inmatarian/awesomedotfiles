@@ -16,10 +16,10 @@ set scrolloff=1
 set sidescrolloff=3
 
 "key mappings
-map <F2> <esc>:NERDTreeToggle<cr>
-map <F3> <esc>:TlistToggle<cr>
-map <F4> <esc>:BufExplorer<cr>
-map <Space> <C-D>
+nmap <F2> <esc>:NERDTreeToggle<cr>
+nmap <M-F3> <esc>:TlistToggle<cr>
+nmap <F3> <esc>n
+nmap <F4> <esc>:BufExplorer<cr>
 
 " Settings for taglist.vim
 let Tlist_Use_Right_Window=1

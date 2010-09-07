@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 DEFAULTZIP=10465
 
 getforecast() {

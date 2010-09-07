@@ -4,11 +4,17 @@ export PAGER=less
 export EDITOR=vim
 export VISUAL=vim
 
+# get some maths on
+= () { echo "scale=4; ${*}" | bc ; }
+
 # some more ls aliases
 alias ..='cd ..'
+alias ....='cd ../..'
 alias ll='ls -lhA'
 alias la='ls -A'
-# alias l='ls -CF'
+
+alias webshare='python -m SimpleHTTPServer'
+alias esay='espeak -v en-us -p 35'
 
 # better safe than sorry
 alias rm='rm -I -v'

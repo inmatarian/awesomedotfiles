@@ -11,12 +11,18 @@
 # -- Pengo
 # 
  
-# Create own window instead of using desktop (required in nautilus)
-own_window yes
+# COMPIZ SETTINGS:
+# own_window yes
 # own_window_type override
 # own_window_transparent yes
-own_window_title trans777
+# own_window_title trans777
 # own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# METACITY SETTINGS
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
  
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
@@ -59,7 +65,6 @@ border_width 10
 default_color grey90
  
 own_window_colour brown
-own_window_transparent yes
  
 # Text alignment, other possible values are commented
 #alignment top_left

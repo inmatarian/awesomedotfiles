@@ -17,9 +17,11 @@ set sidescrolloff=3
 
 "key mappings
 nmap <F2> <esc>:NERDTreeToggle<cr>
-nmap <M-F3> <esc>:TlistToggle<cr>
+nmap <Leader><F2> <esc>:NERDTreeFind<cr>
+nmap <Leader><F3> <esc>:TlistToggle<cr>
 nmap <F3> <esc>n
 nmap <F4> <esc>:BufExplorer<cr>
+nmap <F6> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " Settings for taglist.vim
 let Tlist_Use_Right_Window=1

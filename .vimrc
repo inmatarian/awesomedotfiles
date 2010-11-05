@@ -4,10 +4,12 @@ set showmode
 set showcmd
 set laststatus=2
 set hidden
+hi statusline ctermbg=black
 set statusline=\ %n:\ %f\ %y%r%m%h%w%<%=%v\,\ %l\/%L\,\ %3P\ 
 set nu              " Turn on line numbering.
 set tabstop=2       " numbers of spaces of tab character
 set expandtab
+autocmd FileType make set noexpandtab
 set shiftwidth=2
 set incsearch       " do incremental searchin
 set ignorecase      " ignore case when searching 

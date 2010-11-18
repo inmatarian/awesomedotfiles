@@ -37,7 +37,7 @@ xftalpha 0.8
 text_buffer_size 2048
  
 # Update interval in seconds
-update_interval 20.0
+update_interval 6.0
  
 # Minimum size of text area
 # minimum_size 250 5
@@ -85,6 +85,10 @@ CPU:${alignr}$cpu% ${cpubar 9,85} ${cpugraph 9,135 000000 ffffff}
 MEM:${alignr}$memperc% ${membar 9,85} ${memgraph 9,135 000000 ffffff}
 SWAP:${alignr}$swapperc% ${swapbar 9,130} $swapfree/$swapmax
 
+${color orange}${font DejaVu Sans Mono:bold:size=8}MUSIC ($mpd_status) ${hr 2}$font$color
+${mpd_smart}
+${mpd_bar 5}
+
 ${color orange}${font DejaVu Sans Mono:bold:size=8}PROCESSES ( $processes) ${hr 2}$font$color
 ${font DejaVu Sans Mono:bold:size=8}NAME${alignr}PID   CPU%   MEM%$font
 ${top name 1} ${alignr} ${top pid 1} ${top cpu 1} ${top mem 1}
@@ -99,10 +103,6 @@ Depot: ${alignr} ${fs_used_perc /Depot}% ${fs_bar 9,130 /Depot} ${fs_used /Depot
 ${color orange}${font DejaVu Sans Mono:bold:size=8}NETWORK (${addr eth0}) ${hr 2}$font$color
 Down: ${alignr} ${downspeed eth0} ${downspeedgraph eth0 10,140 000000 ff0000} ${totaldown eth0}
 Up:   ${alignr} ${upspeed eth0} ${upspeedgraph eth0 10,140 000000 00ff00} ${totalup eth0}
-
-${color orange}${font DejaVu Sans Mono:bold:size=8}MUSIC ($mpd_status) ${hr 2}$font$color
-${mpd_smart}
-${mpd_bar 5}
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}WEATHER ${hr 2}$font$color
 ${execi 3600 ~/bin/myweather.rb}

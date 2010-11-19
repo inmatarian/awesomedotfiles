@@ -84,25 +84,20 @@ Uptime: ${uptime} ${alignr} Load: ${loadavg}
 CPU:${alignr}$cpu% ${cpubar 9,85} ${cpugraph 9,135 000000 ffffff}
 MEM:${alignr}$memperc% ${membar 9,85} ${memgraph 9,135 000000 ffffff}
 SWAP:${alignr}$swapperc% ${swapbar 9,130} $swapfree/$swapmax
+PROCESSES:  ${top name 1}${alignr}${top pid 1} ${top cpu 1}%
+            ${top name 2}${alignr}${top pid 1} ${top cpu 2}%
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}MUSIC ($mpd_status) ${hr 2}$font$color
 ${mpd_smart}
 ${mpd_bar 5}
 
-${color orange}${font DejaVu Sans Mono:bold:size=8}PROCESSES ( $processes) ${hr 2}$font$color
-${font DejaVu Sans Mono:bold:size=8}NAME${alignr}PID   CPU%   MEM%$font
-${top name 1} ${alignr} ${top pid 1} ${top cpu 1} ${top mem 1}
-${top name 2} ${alignr} ${top pid 2} ${top cpu 2} ${top mem 2}
-${top name 3} ${alignr} ${top pid 3} ${top cpu 3} ${top mem 3}
-${top name 4} ${alignr} ${top pid 4} ${top cpu 4} ${top mem 4}
+${color orange}${font DejaVu Sans Mono:bold:size=8}NETWORK (${addr eth0}) ${hr 2}$font$color
+Down: ${alignr} ${downspeed eth0} ${downspeedgraph eth0 10,140 000000 ff0000} ${totaldown eth0}
+Up:   ${alignr} ${upspeed eth0} ${upspeedgraph eth0 10,140 000000 00ff00} ${totalup eth0}
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}DISK ${hr 2}$font$color
 Root:  ${alignr} ${fs_used_perc /}% ${fs_bar 9,130 /} ${fs_used /}/${fs_size /}
 Depot: ${alignr} ${fs_used_perc /Depot}% ${fs_bar 9,130 /Depot} ${fs_used /Depot}/${fs_size /Depot}
-
-${color orange}${font DejaVu Sans Mono:bold:size=8}NETWORK (${addr eth0}) ${hr 2}$font$color
-Down: ${alignr} ${downspeed eth0} ${downspeedgraph eth0 10,140 000000 ff0000} ${totaldown eth0}
-Up:   ${alignr} ${upspeed eth0} ${upspeedgraph eth0 10,140 000000 00ff00} ${totalup eth0}
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}WEATHER ${hr 2}$font$color
 ${execi 3600 ~/bin/myweather.rb}

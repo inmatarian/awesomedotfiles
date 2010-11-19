@@ -85,7 +85,7 @@ CPU:${alignr}$cpu% ${cpubar 9,85} ${cpugraph 9,135 000000 ffffff}
 MEM:${alignr}$memperc% ${membar 9,85} ${memgraph 9,135 000000 ffffff}
 SWAP:${alignr}$swapperc% ${swapbar 9,130} $swapfree/$swapmax
 PROCESSES:  ${top name 1}${alignr}${top pid 1} ${top cpu 1}%
-            ${top name 2}${alignr}${top pid 1} ${top cpu 2}%
+            ${top name 2}${alignr}${top pid 2} ${top cpu 2}%
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}MUSIC ($mpd_status) ${hr 2}$font$color
 ${mpd_smart}

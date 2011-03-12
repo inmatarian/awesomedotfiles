@@ -1,0 +1,7 @@
+# Ignore everything.
+*/
+/*
+
+# Track the bin directory
+!bin
+

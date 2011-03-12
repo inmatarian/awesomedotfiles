@@ -77,18 +77,17 @@ gap_x 16
 gap_y 16
  
 # stuff after 'TEXT' will be formatted on screen
- 
 TEXT
 $color${color orange}${font DejaVu Sans Mono:bold:size=8}SYSTEM ($nodename) ${hr 2}$font$color
 Uptime: ${uptime} ${alignr} Load: ${loadavg}
 CPU:${alignr}$cpu% ${cpubar 9,85} ${cpugraph 9,135 000000 ffffff}
 MEM:${alignr}$memperc% ${membar 9,85} ${memgraph 9,135 000000 ffffff}
 SWAP:${alignr}$swapperc% ${swapbar 9,130} $swapfree/$swapmax
-PROCESSES:  ${top name 1}${alignr}${top pid 1} ${top cpu 1}%
-            ${top name 2}${alignr}${top pid 2} ${top cpu 2}%
+PROCESSES:  ${top name 1}${alignr} ${top cpu 1}%
+            ${top name 2}${alignr} ${top cpu 2}%
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}MUSIC ($mpd_status) ${hr 2}$font$color
-${mpd_smart}
+${mpd_smart 44}${alignr}${mpd_length}
 ${mpd_bar 5}
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}NETWORK (${addr eth0}) ${hr 2}$font$color
@@ -100,5 +99,5 @@ Root:  ${alignr} ${fs_used_perc /}% ${fs_bar 9,130 /} ${fs_used /}/${fs_size /}
 Depot: ${alignr} ${fs_used_perc /Depot}% ${fs_bar 9,130 /Depot} ${fs_used /Depot}/${fs_size /Depot}
 
 ${color orange}${font DejaVu Sans Mono:bold:size=8}WEATHER ${hr 2}$font$color
-${execi 3600 ~/bin/myweather.rb}
+${execi 7200 ~/bin/noaaweather.py}
 

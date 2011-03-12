@@ -12,13 +12,21 @@ usage() {
 while getopts “hi:o:b:” OPTION
 do
   case $OPTION in
-    i) INPUT=$OPTARG;;
-    o) OUTPUT=$OPTARG;;
-    b) BITRATE=$OPTARG;;
+    i) INPUT="$OPTARG";;
+    o) OUTPUT="$OPTARG";;
+    b) BITRATE="$OPTARG";;
     h) usage;;
     ?) usage;;
   esac
 done
 
-gst-launch-0.10 filesrc location=$INPUT ! decodebin ! audioconvert ! lame bitrate=$BITRATE ! filesink location=$OUTPUT
+if test -z "$INPUT"; then
+  usage
+fi
+
+if test -z "$OUTPUT"; then
+  OUTPUT="$INPUT.mp3"
+fi
+
+gst-launch-0.10 filesrc location="$INPUT" ! decodebin ! audioconvert ! lame bitrate=$BITRATE ! filesink location="$OUTPUT"
 
